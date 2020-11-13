@@ -1,9 +1,12 @@
 import 'dart:core';
 import 'package:always_access_memory/Database/DbContext.dart';
+import 'package:always_access_memory/Note.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:sqflite/sqflite.dart';
+import 'package:flutter/foundation.dart';
 import '../Database/DbContext.dart';
 
-class NoteModel {
+class NoteModel extends ChangeNotifier {
   int id;
   String name;
   String description;
@@ -18,7 +21,7 @@ class NoteModel {
     };
   }
 
-  static Future<void> insertNote(NoteModel note) async {
+  Future<void> insertNote(NoteModel note) async {
     final Database db = await DbContext.getDatabase();
 
     await db.insert(
@@ -27,10 +30,25 @@ class NoteModel {
       conflictAlgorithm: ConflictAlgorithm.replace
     );
 
-    db.close();
+    notifyListeners();
+    await db.close();
+    return;
   }
 
-  static Future<List<NoteModel>> fetchAll() async  {
+  Future<void> deleteNote(int id) async {
+    final db = await DbContext.getDatabase();
+
+    await db.delete(
+      'notes',
+      where: "id = ?",
+      whereArgs: [id],
+    );
+
+    notifyListeners();
+    return;
+  }
+
+  Future<List<NoteModel>> fetchAll() async  {
     final Database db = await DbContext.getDatabase();
 
     final List<Map<String, dynamic>> notes = await db.query('notes');

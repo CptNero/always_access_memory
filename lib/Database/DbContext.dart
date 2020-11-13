@@ -10,12 +10,13 @@ class DbContext {
     WidgetsFlutterBinding.ensureInitialized();
 
     final Future<Database> database = openDatabase(
-        join(await getDatabasesPath(), 'always_access_memory_database.db'),
-        onCreate: (db, version) {
-          return db.execute(
-            "CREATE TABLE notes(id INTEGER PRIMARY KEY, name TEXT, description TEXT)",
-          );
-        }
+      join(await getDatabasesPath(), 'always_access_memory_database.db'),
+      onCreate: (db, version) {
+        return db.execute(
+          "CREATE TABLE notes(id INTEGER PRIMARY KEY, name TEXT, description TEXT)",
+        );
+      },
+      version: 1
     );
 
     return database;
