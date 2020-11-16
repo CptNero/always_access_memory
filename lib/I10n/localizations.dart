@@ -6,17 +6,17 @@ import 'package:flutter/foundation.dart';
 import 'en.dart';
 import 'hu.dart';
 
-class AlwaysAccessMemoryLocalizations {
+class AamLocalizations {
   final Locale locale;
 
-  AlwaysAccessMemoryLocalizations(this.locale);
+  AamLocalizations(this.locale);
 
-  static AlwaysAccessMemoryLocalizations of (BuildContext context) {
-    return Localizations.of<AlwaysAccessMemoryLocalizations>(
-        context, AlwaysAccessMemoryLocalizations);
+  static AamLocalizations of (BuildContext context) {
+    return Localizations.of<AamLocalizations>(
+        context, AamLocalizations);
   }
 
-  static LocalizationsDelegate<AlwaysAccessMemoryLocalizations> delegate = AlwaysAccessMemoryLocalizationsDelegate();
+  static LocalizationsDelegate<AamLocalizations> delegate = AamLocalizationsDelegate();
 
   static Map<String, Map<String, String>> _localizedValues = {
     'en': ENGLISH_LOCALIZATIONS,
@@ -26,15 +26,15 @@ class AlwaysAccessMemoryLocalizations {
   String stringById(String id) => _localizedValues[locale.languageCode][id];
 }
 
-class AlwaysAccessMemoryLocalizationsDelegate extends LocalizationsDelegate<AlwaysAccessMemoryLocalizations> {
+class AamLocalizationsDelegate extends LocalizationsDelegate<AamLocalizations> {
   @override
   bool isSupported(Locale locale) => ['en', 'hu'].contains(locale.languageCode);
 
   @override
-  Future<AlwaysAccessMemoryLocalizations> load(Locale locale) {
-    return SynchronousFuture<AlwaysAccessMemoryLocalizations>(AlwaysAccessMemoryLocalizations(locale));
+  Future<AamLocalizations> load(Locale locale) {
+    return SynchronousFuture<AamLocalizations>(AamLocalizations(locale));
   }
 
   @override
-  bool shouldReload(covariant LocalizationsDelegate<AlwaysAccessMemoryLocalizations> old) => false;
+  bool shouldReload(covariant LocalizationsDelegate<AamLocalizations> old) => false;
 }

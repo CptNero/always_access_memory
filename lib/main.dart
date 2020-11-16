@@ -46,7 +46,7 @@ class _MyAppState extends State<MyApp> {
       home: MyHomePage(title: 'Always Access Memory'),
       locale: _locale,
       localizationsDelegates: [
-        AlwaysAccessMemoryLocalizations.delegate,
+        AamLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],

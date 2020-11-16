@@ -18,7 +18,7 @@ class _AddNotePageState extends State<AddNotePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AlwaysAccessMemoryLocalizations.of(context).stringById('addNote')),
+        title: Text(AamLocalizations.of(context).stringById('addNote')),
       ),
       body: Center(
           child: Column(
@@ -48,6 +48,7 @@ class _AddNotePageState extends State<AddNotePage> {
                 },
               ),
               ElevatedButton(
+                child: Text("Add"),
                 onPressed: () async {
                   await Provider.of<NoteModel>(context, listen: false).insertNote(NoteModel(name: _noteNameController.value.text, description: _noteDescriptionController.value.text));
                   Navigator.pop(context);

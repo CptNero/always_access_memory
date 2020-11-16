@@ -1,4 +1,5 @@
 import 'package:always_access_memory/I10n/localizations.dart';
+import 'package:always_access_memory/Models/LanguageModel.dart';
 import 'package:flutter/material.dart';
 
 import 'main.dart';
@@ -23,29 +24,34 @@ class _SettingsPageState extends State<SettingsPage> {
         Center(
           child: Column(
             children: [
-            DropdownButton<String>(
-            value: currentLanguage,
-            icon: Icon(Icons.arrow_downward),
-            iconSize: 24,
-            elevation: 16,
-            style: TextStyle(color: Colors.red),
-            underline: Container(
-                height: 2,
-                color: Colors.redAccent
+            ListTile(
+              title: Text("Language"),
+              trailing: DropdownButton<String>(
+                  value: currentLanguage ?? Localizations.localeOf(context).languageCode,
+                  icon: Icon(Icons.arrow_downward),
+                  iconSize: 24,
+                  elevation: 16,
+                  style: TextStyle(color: Colors.red),
+                  underline: Container(
+                      height: 2,
+                      color: Colors.redAccent
+                  ),
+                  onChanged: (String selectedLanguage) {
+                    setState(() {
+                      MyApp.setLocale(context, Locale(selectedLanguage, ''));
+                    });
+                  },
+                  items: <LanguageModel>{LanguageModel(name: "Hungarian", locale: "hu"), LanguageModel(name: "English", locale: "en")}
+                      .map<DropdownMenuItem<String>>((LanguageModel language) {
+                    return DropdownMenuItem<String>(
+                      key: Key(language.name),
+                      value: language.locale,
+                      child: Text(language.name),
+                    );
+                  }).toList()
+              )
             ),
-            onChanged: (String selectedLanguage) {
-              setState(() {
-                MyApp.setLocale(context, Locale(selectedLanguage, ''));
-              });
-            },
-            items: <String>["en", "hu"]
-                .map<DropdownMenuItem<String>>((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(value),
-              );
-            }).toList()
-            )],
+            ],
           ),
         )
     );

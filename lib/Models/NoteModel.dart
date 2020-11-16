@@ -35,6 +35,20 @@ class NoteModel extends ChangeNotifier {
     return;
   }
 
+  Future<void> updateNote(NoteModel note) async {
+    final db = await DbContext.getDatabase();
+
+    await db.update(
+      'notes',
+      note.toMap(),
+      where: "id = ?",
+      whereArgs: [note.id],
+    );
+
+    notifyListeners();
+    return;
+  }
+
   Future<void> deleteNote(int id) async {
     final db = await DbContext.getDatabase();
 
@@ -60,5 +74,9 @@ class NoteModel extends ChangeNotifier {
         description: notes[i]['description'],
       );
     });
+  }
+
+  void refresh() async {
+    notifyListeners();
   }
 }
