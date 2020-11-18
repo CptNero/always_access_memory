@@ -1,6 +1,8 @@
 import 'package:always_access_memory/Models/NoteModel.dart';
 import 'package:flutter/material.dart';
 
+import 'google_maps.dart';
+
 class NotePage extends StatelessWidget {
   NoteModel note;
 
@@ -16,6 +18,15 @@ class NotePage extends StatelessWidget {
           children: [
             ListTile(
               subtitle: Text(note.description, style: TextStyle(fontSize: 20)),
+            ),
+            ListTile(
+              title: Text("Related address"),
+              subtitle: Text(note.address.replaceAll(";", " "), style: TextStyle(fontSize: 20)),
+              onTap: () {
+                showDialog(context: context, builder: (context) {
+                  return NoteMap(note.address);
+                });
+              },
             )
           ],
         )

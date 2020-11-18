@@ -1,6 +1,5 @@
 import 'dart:core';
 import 'package:always_access_memory/Database/DbContext.dart';
-import 'package:always_access_memory/Note.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:flutter/foundation.dart';
@@ -10,14 +9,16 @@ class NoteModel extends ChangeNotifier {
   int id;
   String name;
   String description;
+  String address;
 
-  NoteModel({this.id, this.name, this.description});
+  NoteModel({this.id, this.name, this.description, this.address});
 
   Map<String, dynamic> toMap() {
     return {
       'id': id,
       'name': name,
-      'description': description
+      'description': description,
+      'address' : address,
     };
   }
 
@@ -72,6 +73,7 @@ class NoteModel extends ChangeNotifier {
         id: notes[i]['id'],
         name: notes[i]['name'],
         description: notes[i]['description'],
+        address: notes[i]['address'],
       );
     });
   }

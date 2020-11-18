@@ -7,6 +7,7 @@ class AddNoteButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
+      key: Key("AddNoteButton"),
       child: Icon(Icons.add),
       onPressed: () {
         Navigator.push(context,

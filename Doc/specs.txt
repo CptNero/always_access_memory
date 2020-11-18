@@ -8,7 +8,7 @@
 | küldenek egymásnak                              |              |
 ==================================================================
 | Legalább 2 típusú dialógus ablak:               |              |
-| * amin keresztül információt jelenítünk meg     |       5      |
+| * amin keresztül információt jelenítünk meg     |       5      | DONE
 | * amin keresztül információt kérünk be          |              |
 ==================================================================
 | Fotó készítése tárolása és megjelenítése        |      10      |
@@ -18,14 +18,14 @@
 | Többnyelvű alkalmazás készítése,                |      10      | DONE
 | nyelvválasztási lehetőséggel                    |              |
 ==================================================================
-| Egy screen, ami alkalmazkodik a különböző       |       5      |
+| Egy screen, ami alkalmazkodik a különböző       |       5      | DONE
 | méretű képernyőkhöz                             |              |
 ==================================================================
-| Animáció                                        |       5      |
+| Animáció                                        |       5      | BROKEN
 ==================================================================
 | Választás a nyévjegyzékből                      |       5      |
 ==================================================================
 | Tesztek legalább 2 képernyőre                   |      15      |
 ==================================================================
-| Google térkép használata                        |      10      |
+| Google térkép használata                        |      10      | DONE
 ==================================================================

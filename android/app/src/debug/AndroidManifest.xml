@@ -4,4 +4,10 @@
          to allow setting breakpoints, to provide hot reload, etc.
     -->
     <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:label="always_access_memory"
+        android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyBHtHvxl7rt15uXzpXaxIO-2FXZkRjTJtM"/>
+    </application>
 </manifest>
