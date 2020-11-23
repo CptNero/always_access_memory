@@ -11,7 +11,7 @@ void main() {
     FlutterDriver driver;
 
     setUpAll((() async {
-      driver = await FlutterDriver.connect()
+      driver = await FlutterDriver.connect();
     }));
 
     tearDownAll(() async {

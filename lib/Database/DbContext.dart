@@ -18,10 +18,10 @@ class DbContext {
       },
       onUpgrade: (db, oldVersion, newVersion) {
         return db.execute(
-          "ALTER TABLE notes ADD COLUMN address TEXT",
+          "ALTER TABLE notes ADD COLUMN image TEXT",
         );
       },
-      version: 3
+      version: 4
     );
 
     return database;

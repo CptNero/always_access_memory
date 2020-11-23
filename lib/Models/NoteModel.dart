@@ -10,8 +10,9 @@ class NoteModel extends ChangeNotifier {
   String name;
   String description;
   String address;
+  String image;
 
-  NoteModel({this.id, this.name, this.description, this.address});
+  NoteModel({this.id, this.name, this.description, this.address, this.image});
 
   Map<String, dynamic> toMap() {
     return {
@@ -19,6 +20,7 @@ class NoteModel extends ChangeNotifier {
       'name': name,
       'description': description,
       'address' : address,
+      'image' : image,
     };
   }
 
@@ -74,6 +76,7 @@ class NoteModel extends ChangeNotifier {
         name: notes[i]['name'],
         description: notes[i]['description'],
         address: notes[i]['address'],
+        image: notes[i]['image'],
       );
     });
   }

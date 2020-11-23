@@ -4,14 +4,14 @@
 | Állapotkezelés Provider, vagy BLoC segítségével |      15      |  DONE
 ==================================================================
 | Legalább 5 különböző képernyő, melyek           |              |
-| interakcióba lépnek egymással, adatot           |      10      |  3/5
+| interakcióba lépnek egymással, adatot           |      10      |  5/5
 | küldenek egymásnak                              |              |
 ==================================================================
 | Legalább 2 típusú dialógus ablak:               |              |
 | * amin keresztül információt jelenítünk meg     |       5      | DONE
 | * amin keresztül információt kérünk be          |              |
 ==================================================================
-| Fotó készítése tárolása és megjelenítése        |      10      |
+| Fotó készítése tárolása és megjelenítése        |      10      | DONE
 ==================================================================
 | SQLite adatbázis használata                     |      10      | DONE
 ==================================================================
@@ -21,7 +21,7 @@
 | Egy screen, ami alkalmazkodik a különböző       |       5      | DONE
 | méretű képernyőkhöz                             |              |
 ==================================================================
-| Animáció                                        |       5      | BROKEN
+| Animáció                                        |       5      | DONE
 ==================================================================
 | Választás a nyévjegyzékből                      |       5      |
 ==================================================================

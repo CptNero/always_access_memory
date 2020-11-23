@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'I10n/localizations.dart';
 import 'Models/NoteModel.dart';
 import 'edit_note_page.dart';
 
@@ -87,13 +88,13 @@ class _NoteListWidgetState extends State<NoteList> {
                 },
                 itemBuilder: (BuildContext context) =>
                     <PopupMenuEntry<NoteActions>>[
-                      const PopupMenuItem<NoteActions>(
+                      PopupMenuItem<NoteActions>(
                         value: NoteActions.Edit,
-                        child: Text("Edit"),
+                        child: Text(AamLocalizations.of(context).stringById('edit')),
                       ),
-                      const PopupMenuItem<NoteActions>(
+                      PopupMenuItem<NoteActions>(
                         value: NoteActions.Delete,
-                        child: Text("Delete"),
+                        child: Text( AamLocalizations.of(context).stringById('delete')),
                       ),
                     ]),
           ),

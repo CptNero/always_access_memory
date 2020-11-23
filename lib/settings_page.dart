@@ -18,14 +18,14 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Settings"),
+          title: Text(AamLocalizations.of(context).stringById('settings')),
         ),
         body:
         Center(
           child: Column(
             children: [
             ListTile(
-              title: Text("Language"),
+              title: Text(AamLocalizations.of(context).stringById('language')),
               trailing: DropdownButton<String>(
                   value: currentLanguage ?? Localizations.localeOf(context).languageCode,
                   icon: Icon(Icons.arrow_downward),
@@ -41,7 +41,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       MyApp.setLocale(context, Locale(selectedLanguage, ''));
                     });
                   },
-                  items: <LanguageModel>{LanguageModel(name: "Hungarian", locale: "hu"), LanguageModel(name: "English", locale: "en")}
+                  items: <LanguageModel>{LanguageModel(name: AamLocalizations.of(context).stringById('hungarian'), locale: "hu"), LanguageModel(name: AamLocalizations.of(context).stringById('english'), locale: "en")}
                       .map<DropdownMenuItem<String>>((LanguageModel language) {
                     return DropdownMenuItem<String>(
                       key: Key(language.name),
