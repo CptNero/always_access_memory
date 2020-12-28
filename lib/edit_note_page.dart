@@ -15,15 +15,24 @@ class EditNotePage extends StatefulWidget {
 
 class _EditNotePageState extends State<EditNotePage> {
   NoteModel note;
+
   _EditNotePageState(this.note);
 
   TextEditingController _noteNameController = TextEditingController();
   TextEditingController _noteDescriptionController = TextEditingController();
+  TextEditingController _noteAddressCityController = TextEditingController();
+  TextEditingController _noteAddressStreetController = TextEditingController();
+  TextEditingController _noteAddressHouseNumberController = TextEditingController();
 
   @override
   void initState() {
     _noteNameController.text = note.name;
     _noteDescriptionController.text = note.description;
+
+    List<String> splitAddress = note.address.split(";");
+    _noteAddressCityController.text = splitAddress[0];
+    _noteAddressStreetController.text = splitAddress[1];
+    _noteAddressHouseNumberController.text = splitAddress[2];
     super.initState();
   }
 
@@ -61,9 +70,44 @@ class _EditNotePageState extends State<EditNotePage> {
               },
             ),
             ElevatedButton(
+              child: Text(AamLocalizations.of(context).stringById('addAddress')),
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return Dialog(
+                        elevation: 16,
+                        child: Container(
+                            child: Column(
+                              children: [
+                                TextFormField(
+                                  controller: _noteAddressCityController,
+                                  decoration: InputDecoration(labelText: AamLocalizations.of(context).stringById('city')),
+                                ),
+                                TextFormField(
+                                  controller: _noteAddressStreetController,
+                                  decoration: InputDecoration(labelText: AamLocalizations.of(context).stringById('street')),
+                                ),
+                                TextFormField(
+                                  controller: _noteAddressHouseNumberController,
+                                  decoration:
+                                  InputDecoration(labelText: AamLocalizations.of(context).stringById('houseNumber')),
+                                ),
+                              ],
+                            )));
+                  },
+                );
+              },
+            ),
+            ElevatedButton(
               child: Text("Edit"),
               onPressed: () async {
-                await Provider.of<NoteModel>(context, listen: false).updateNote(NoteModel(id: note.id, name: _noteNameController.value.text, description: _noteDescriptionController.value.text));
+                await Provider.of<NoteModel>(context, listen: false).updateNote(NoteModel(
+                    id: note.id,
+                    name: _noteNameController.value.text,
+                    description: _noteDescriptionController.value.text,
+                    address: _noteAddressCityController.value.text + ";" + _noteAddressStreetController.value.text + ";" + _noteAddressHouseNumberController.value.text,
+                    image: note.image),);
                 Navigator.pop(context);
               },
             )

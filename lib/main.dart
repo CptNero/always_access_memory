@@ -5,7 +5,6 @@ import 'package:always_access_memory/settings_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:camera/camera.dart';
 
 import 'Models/NoteModel.dart';
 
