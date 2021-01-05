@@ -4,7 +4,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:http/http.dart' as http;
 
 class LocationService {
-  static Future<LatLng> find(String address) async {
+  static Future<LatLng> find(String address, {http.Client httpClient}) async {
     var response = await http.get(_buildUrl(address));
     if (response.statusCode == HttpStatus.ok) {
       var data = jsonDecode(response.body);

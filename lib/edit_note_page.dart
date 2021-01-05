@@ -40,7 +40,7 @@ class _EditNotePageState extends State<EditNotePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AamLocalizations.of(context).stringById('addNote')),
+        title: Text(AamLocalizations.of(context).stringById('editNote')),
       ),
       body: Center(
         child: Column(
@@ -70,7 +70,7 @@ class _EditNotePageState extends State<EditNotePage> {
               },
             ),
             ElevatedButton(
-              child: Text(AamLocalizations.of(context).stringById('addAddress')),
+              child: Text(AamLocalizations.of(context).stringById('editAddress')),
               onPressed: () {
                 showDialog(
                   context: context,

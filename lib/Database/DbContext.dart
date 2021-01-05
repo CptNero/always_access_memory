@@ -13,7 +13,7 @@ class DbContext {
       join(await getDatabasesPath(), 'always_access_memory_database.db'),
       onCreate: (db, version) {
         return db.execute(
-          "CREATE TABLE notes(id INTEGER PRIMARY KEY, name TEXT, description TEXT, address TEXT)",
+          "CREATE TABLE notes(id INTEGER PRIMARY KEY, name TEXT, description TEXT, address TEXT, image TEXT)",
         );
       },
       onUpgrade: (db, oldVersion, newVersion) {
@@ -21,7 +21,7 @@ class DbContext {
           "ALTER TABLE notes ADD COLUMN image TEXT",
         );
       },
-      version: 4
+      version: 5
     );
 
     return database;
